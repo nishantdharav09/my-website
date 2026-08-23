@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishant Portfolio</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#070014;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:radial-gradient(white 1px, transparent 1px);
+      background-size:42px 42px;
+      opacity:0.28;
+      z-index:-3;
+      animation:moveStars 18s linear infinite;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 18% 15%, rgba(168,85,247,0.35), transparent 35%),
+        radial-gradient(circle at 80% 35%, rgba(56,189,248,0.28), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(236,72,153,0.18), transparent 35%);
+      z-index:-2;
+    }
+
+    @keyframes moveStars{
+      from{background-position:0 0;}
+      to{background-position:420px 420px;}
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(40px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    @keyframes glowPulse{
+      0%,100%{box-shadow:0 0 14px rgba(168,85,247,0.35);}
+      50%{box-shadow:0 0 24px rgba(56,189,248,0.45);}
+    }
+
+    @keyframes floatBox{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+    }
+
+    .navbar{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      width:fit-content;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,0.35);
+      border-radius:45px;
+      background:rgba(12,8,30,0.88);
+      backdrop-filter:blur(10px);
+      box-shadow:0 0 22px rgba(56,189,248,0.35);
+      z-index:1000;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      overflow:hidden;
+      animation:glowPulse 3s infinite;
+    }
+
+    .nav-indicator{
+      position:absolute;
+      top:8px;
+      left:14px;
+      height:46px;
+      width:90px;
+      border-radius:30px;
+      background:linear-gradient(135deg,#8b5cf6,#38bdf8);
+      box-shadow:0 0 18px rgba(56,189,248,0.55);
+      transition:all 0.45s cubic-bezier(.68,-0.55,.27,1.55);
+      z-index:0;
+    }
+
+    .navbar a{
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      font-weight:800;
+      padding:12px 18px;
+      border-radius:28px;
+      transition:0.3s;
+      position:relative;
+      z-index:2;
+      white-space:nowrap;
+    }
+
+    .navbar a:hover,
+    .navbar a.active{
+      transform:translateY(-3px);
+    }
+
+    .resume-btn{
+      border:1px solid white;
+    }
+
+    section{
+      min-height:100vh;
+      padding:120px 9% 70px;
+      animation:fadeUp 0.9s ease both;
+    }
+
+    .home{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+    }
+
+    .home h2{
+      font-size:58px;
+      letter-spacing:4px;
+      margin-bottom:30px;
+      text-shadow:0 0 18px rgba(168,85,247,0.7);
+    }
+
+    .name-row{
+      display:flex;
+      align-items:center;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    .name-row span{
+      font-size:55px;
+      font-weight:900;
+    }
+
+    .name-box{
+      background:linear-gradient(135deg,#8b5cf6,#38bdf8,#ec4899);
+      color:white;
+      padding:24px 60px;
+      border-radius:25px;
+      font-size:55px;
+      font-weight:900;
+      box-shadow:0 0 28px rgba(168,85,247,0.55);
+      animation:floatBox 3s ease-in-out infinite;
+    }
+
+    .typing{
+      margin-top:18px;
+      font-family:monospace;
+      font-size:24px;
+      color:#ddd;
+      letter-spacing:2px;
+    }
+
+    .wave{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:140px;
+      background-image:radial-gradient(#ffffff 4px, transparent 5px);
+      background-size:18px 18px;
+      clip-path:polygon(0 55%,10% 40%,22% 45%,34% 30%,47% 55%,62% 38%,75% 52%,90% 35%,100% 45%,100% 100%,0 100%);
+      opacity:0.55;
+      filter:drop-shadow(0 0 8px #38bdf8);
+    }
+
+    .section-title{
+      width:fit-content;
+      margin:0 auto 45px;
+      padding:15px 38px;
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(168,85,247,0.35),rgba(56,189,248,0.28));
+      box-shadow:0 0 20px rgba(56,189,248,0.35);
+      font-size:48px;
+      letter-spacing:8px;
+      text-align:center;
+    }
+
+    .about-box{
+      max-width:900px;
+      margin:auto;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.22);
+      padding:35px;
+      border-radius:24px;
+      line-height:1.8;
+      font-size:20px;
+      color:#ddd;
+      backdrop-filter:blur(3px);
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:55px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .skill-card,
+    .education-card,
+    .certificate-card,
+    .project-row{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.22);
+      border-radius:24px;
+      backdrop-filter:blur(3px);
+      transition:0.35s;
+    }
+
+    .skill-card:hover,
+    .education-card:hover,
+    .certificate-card:hover,
+    .project-row:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 18px rgba(56,189,248,0.35);
+    }
+
+    .skill-card{
+      padding:30px;
+    }
+
+    .skill-card h3{
+      font-size:30px;
+      margin-bottom:14px;
+      color:#38bdf8;
+      border-bottom:1px solid rgba(255,255,255,0.3);
+      padding-bottom:10px;
+    }
+
+    .skill-card pre{
+      font-family:monospace;
+      font-size:23px;
+      line-height:1.55;
+      color:#f2f2f2;
+      white-space:pre-wrap;
+    }
+
+    .education-card{
+      max-width:900px;
+      margin:22px auto;
+      padding:30px;
+    }
+
+    .education-card h3,
+    .project-row h3{
+      font-size:28px;
+      margin-bottom:8px;
+    }
+
+    .education-card p,
+    .project-row span{
+      font-family:monospace;
+      color:#ddd;
+      font-size:20px;
+    }
+
+    #certificates{
+      min-height:100vh;
+      padding-top:130px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    .certificate-grid{
+      width:100%;
+      max-width:1200px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+      margin-top:15px;
+      position:relative;
+      z-index:5;
+    }
+
+    .certificate-card{
+      min-height:360px;
+      padding:35px 25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      text-align:center;
+      overflow:visible;
+      background:linear-gradient(135deg,rgba(168,85,247,0.18),rgba(56,189,248,0.12));
+      box-shadow:0 0 10px rgba(56,189,248,0.25);
+    }
+
+    .badge{
+      width:105px;
+      height:105px;
+      border-radius:24px;
+      background:#fff;
+      color:#111;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:28px;
+      box-shadow:0 0 18px rgba(255,255,255,0.45);
+      margin-bottom:15px;
+    }
+
+    .certificate-card h3{
+      font-size:25px;
+      line-height:1.2;
+    }
+
+    .certificate-card p{
+      font-size:18px;
+      color:#f0f0f0;
+      line-height:1.35;
+    }
+
+    .cert-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:25px;
+      padding:14px 28px;
+      border:none;
+      border-radius:35px;
+      background:linear-gradient(135deg,#8b5cf6,#38bdf8);
+      color:white;
+      font-size:18px;
+      font-weight:900;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 0 12px rgba(56,189,248,0.45);
+      transition:0.3s;
+      min-width:220px;
+      position:relative;
+      z-index:50;
+    }
+
+    .cert-btn:hover{
+    .cert-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:25px;
+    padding:14px 28px;
+    border-radius:35px;
+    background:linear-gradient(135deg,#8b5cf6,#38bdf8);
+    color:white;
+    font-size:18px;
+    font-weight:800;
+    text-decoration:none;
+    box-shadow:0 0 12px rgba(56,189,248,0.45);
+    transition:0.3s;
+    min-width:220px;
+}
+
+.cert-btn:hover{
+    transform:translateY(-4px) scale(1.04);
+}
+    }
+
+    .projects-list{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .project-row{
+      padding:30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:25px;
+      margin:50px 0;
+    }
+
+    .contact-links a{
+      background:linear-gradient(135deg,#8b5cf6,#38bdf8);
+      color:white;
+      text-decoration:none;
+      padding:16px 38px;
+      border-radius:40px;
+      font-family:monospace;
+      font-size:22px;
+      transition:0.3s;
+      box-shadow:0 0 14px rgba(56,189,248,0.35);
+    }
+
+    .contact-links a:hover{
+      transform:translateY(-6px) scale(1.04);
+    }
+
+    footer{
+      font-family:monospace;
+      color:#ddd;
+      margin-top:80px;
+      padding:15px 22px;
+      background:rgba(255,255,255,0.08);
+      border-radius:12px;
+      display:inline-block;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    @media(max-width:850px){
+      .navbar{
+        width:92%;
+        overflow-x:auto;
+        justify-content:flex-start;
+      }
+
+      .navbar a{
+        font-size:14px;
+        padding:10px 14px;
+      }
+
+      .home h2,
+      .name-row span,
+      .name-box{
+        font-size:38px;
+      }
+
+      .name-box{
+        padding:18px 28px;
+      }
+
+      .typing{
+        font-size:18px;
+      }
+
+      .skills-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-title{
+        font-size:32px;
+        letter-spacing:4px;
+      }
+
+      .project-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="nav-indicator"></span>
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#" class="resume-btn">Resume</a>
+  </nav>
+
+  <section class="home" id="home">
+    <h2>Hello There!!!</h2>
+    <div class="name-row">
+      <span>I'm</span>
+      <div class="name-box">Nishant Dharav</div>
+    </div>
+    <p class="typing">Student Learning Artificial Intelligence.</p>
+    <p class="typing">Building systems that can talk, think and improve itself.</p>
+    <div class="wave"></div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-box">
+      <p>
+        Hello, I am Nishant Dharav. I am a student interested in Artificial Intelligence,
+        Machine Learning, Cloud Computing and Web Development. I like to build simple,
+        useful and creative projects using technology.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Core Skills</h3>
+        <pre>
+|
+|—Artificial Intelligence (AI)
+|—Machine Learning
+|—Deep Learning
+|—Data Visualization
+|—Computer Vision
+└—Cloud Computing</pre>
+      </div>
+
+      <div class="skill-card">
+        <h3>Programming Languages</h3>
+        <pre>
+|
+|—Python
+|—R
+|—Java
+|—JavaScript
+|—Node.js
+|—HTML/CSS
+|—SQL
+└—C</pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="education-card">
+      <h3>B.Tech in Artificial Intelligence and Machine Learning</h3>
+      <p>JSPM University, Pune</p>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <h2 class="section-title">Certificates</h2>
+
+    <div class="certificate-grid">
+      <div class="certificate-card">
+        <div class="badge">TR</div>
+        <h3>Tiranex Internship Certification</h3>
+        <p>Internship Completion Certificate</p>
+      </div>
+
+      <div class="certificate-card">
+        <div class="badge">UX</div>
+        <h3>UI/UX Designing</h3>
+        <p>Designing, Wireframing and Prototype Certification</p>
+        <button class="cert-btn" onclick="window.open('Certificate_Nishant_Dharav.pdf', '_blank')">
+          <button class="cert-btn"
+onclick="window.location.href='./Certificate_Nishant_Dharav.pdf'">
+View Certificate ↗
+</button> ↗
+        </button>
+      </div>
+
+      <div class="certificate-card">
+        <div class="badge">AI</div>
+        <h3>Artificial Intelligence and Machine Learning</h3>
+        <p>AI/ML Learning Certification</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+      <div class="project-row">
+        <h3>Women's Safety</h3>
+        <span>Developed in 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-links">
+      <a href="mailto:nishantdharav@gmail.com">
+nishantdharav@gmail.com
+</a>
+      <a href="#">LinkedIn ↗</a>
+      <a href="#">GitHub ↗</a>
+      <a href="#">Research ↗</a>
+    </div>
+    <footer>©2024-2026. Nishant Dharav Portfolio. All Rights Reserved.</footer>
+  </section>
+
+  <script>
+    const links = document.querySelectorAll('.navbar a[href^="#"]');
+    const sections = document.querySelectorAll('section');
+    const indicator = document.querySelector('.nav-indicator');
+
+    function moveIndicator(activeLink){
+      if(!activeLink) return;
+      indicator.style.width = activeLink.offsetWidth + 'px';
+      indicator.style.left = activeLink.offsetLeft + 'px';
+    }
+
+    function setActiveLink(){
+      let currentSection = 'home';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 180;
+        const sectionHeight = section.offsetHeight;
+        if(window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight){
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      links.forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href') === '#' + currentSection){
+          link.classList.add('active');
+          moveIndicator(link);
+        }
+      });
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(item => item.classList.remove('active'));
+        link.classList.add('active');
+        moveIndicator(link);
+      });
+    });
+
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('resize', setActiveLink);
+    window.addEventListener('load', () => {
+      moveIndicator(document.querySelector('.navbar a.active'));
+      setActiveLink();
+    });
+  </script>
+
+</body>
+</html>
