@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Nishant Dharav | AI/ML Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <meta name="description"
 content="Nishant Dharav — AI/ML student and developer passionate about Artificial Intelligence, Machine Learning, Web Development and Cloud Computing.">
@@ -16,15 +21,12 @@ content="Nishant Dharav — AI/ML student and developer passionate about Artific
     --bg:#03030b;
     --bg2:#080817;
     --card:rgba(255,255,255,.055);
-
     --purple:#8b5cf6;
     --blue:#38bdf8;
     --pink:#ec4899;
     --green:#22c55e;
-
     --text:#ffffff;
     --muted:#a7a7b5;
-
     --border:rgba(255,255,255,.12);
 
     --gradient:linear-gradient(
@@ -76,8 +78,16 @@ body::before{
     z-index:-10;
 
     background-image:
-        radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1.5px),
-        radial-gradient(circle,rgba(56,189,248,.5) 1px,transparent 1.5px);
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.7) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(56,189,248,.5) 1px,
+            transparent 1.5px
+        );
 
     background-size:
         55px 55px,
@@ -173,10 +183,8 @@ body::after{
 
 .navbar{
     position:fixed;
-
     top:18px;
     left:50%;
-
     transform:translateX(-50%);
 
     width:max-content;
@@ -189,7 +197,6 @@ body::after{
     gap:4px;
 
     background:rgba(8,8,20,.78);
-
     border:1px solid var(--border);
     border-radius:50px;
 
@@ -204,23 +211,17 @@ body::after{
 
 .navbar a{
     padding:10px 14px;
-
     font-size:13px;
     font-weight:700;
-
     color:#ddd;
-
     border-radius:30px;
-
     transition:.3s ease;
-
     white-space:nowrap;
 }
 
 .navbar a:hover,
 .navbar a.active{
     color:white;
-
     background:var(--gradient);
 
     box-shadow:
@@ -231,25 +232,18 @@ body::after{
 
 .menu-btn{
     display:none;
-
     width:42px;
     height:42px;
-
     border:none;
     border-radius:50%;
-
     color:white;
     background:var(--gradient);
-
     cursor:pointer;
 }
 
 section{
     min-height:100vh;
-
-    padding:
-        120px 8% 90px;
-
+    padding:120px 8% 90px;
     position:relative;
 }
 
@@ -265,38 +259,29 @@ section{
 
 .section-heading span{
     display:inline-block;
-
     margin-bottom:12px;
-
     color:var(--blue);
-
     font-size:13px;
     font-weight:bold;
-
     letter-spacing:4px;
     text-transform:uppercase;
 }
 
 .section-heading h2{
     font-size:clamp(32px,5vw,48px);
-
     margin-bottom:12px;
 }
 
 .section-heading p{
     color:var(--muted);
-
     max-width:650px;
     margin:auto;
 }
 
 .glass{
     background:var(--card);
-
     border:1px solid var(--border);
-
     border-radius:24px;
-
     backdrop-filter:blur(15px);
 
     box-shadow:
@@ -319,7 +304,6 @@ section{
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding-top:130px;
 }
 
@@ -342,7 +326,6 @@ section{
     gap:9px;
 
     padding:8px 15px;
-
     margin-bottom:22px;
 
     color:#c9f4ff;
@@ -354,14 +337,12 @@ section{
         1px solid rgba(56,189,248,.25);
 
     border-radius:30px;
-
     font-size:13px;
 }
 
 .status-dot{
     width:8px;
     height:8px;
-
     border-radius:50%;
 
     background:var(--green);
@@ -387,9 +368,7 @@ section{
 
 .hero h1{
     font-size:clamp(48px,7vw,82px);
-
     line-height:1.05;
-
     margin-bottom:20px;
 }
 
@@ -406,7 +385,6 @@ section{
 
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
 
     animation:gradientText 5s linear infinite;
@@ -421,9 +399,7 @@ section{
 
 .hero h2{
     font-size:clamp(22px,3vw,32px);
-
     color:#ddd;
-
     margin-bottom:20px;
 }
 
@@ -433,21 +409,15 @@ section{
 
 .hero-description{
     max-width:700px;
-
     color:var(--muted);
-
     font-size:18px;
-
     line-height:1.8;
 }
 
 .hero-buttons{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:14px;
-
     margin-top:30px;
 }
 
@@ -458,11 +428,9 @@ section{
     gap:8px;
 
     padding:13px 22px;
-
     border-radius:30px;
 
     font-weight:bold;
-
     border:1px solid transparent;
 
     transition:.3s;
@@ -481,7 +449,6 @@ section{
 
 .btn-secondary{
     background:rgba(255,255,255,.05);
-
     border-color:
         rgba(255,255,255,.18);
 }
@@ -533,14 +500,13 @@ section{
 .ai-orb::before,
 .ai-orb::after{
     content:"";
-
     position:absolute;
-
     inset:-18px;
 
     border-radius:50%;
 
-    border:1px solid rgba(56,189,248,.25);
+    border:
+        1px solid rgba(56,189,248,.25);
 
     animation:orbit 8s linear infinite;
 }
@@ -552,7 +518,6 @@ section{
         rgba(139,92,246,.2);
 
     animation-duration:12s;
-
     animation-direction:reverse;
 }
 
@@ -599,40 +564,32 @@ section{
 
 .stats{
     display:grid;
-
     grid-template-columns:
         repeat(4,1fr);
 
     gap:18px;
-
     margin-top:65px;
 }
 
 .stat{
     padding:22px;
-
     text-align:center;
-
     cursor:pointer;
 }
 
 .stat strong{
     display:block;
-
     font-size:30px;
-
     color:var(--blue);
 }
 
 .stat span{
     color:var(--muted);
-
     font-size:13px;
 }
 
 .about-grid{
     display:grid;
-
     grid-template-columns:
         .8fr 1.2fr;
 
@@ -641,7 +598,6 @@ section{
 
 .profile-card{
     padding:35px;
-
     text-align:center;
 }
 
@@ -681,22 +637,17 @@ section{
 
 .about-content p{
     color:#ccc;
-
     font-size:17px;
-
     line-height:1.9;
-
     margin-bottom:18px;
 }
 
 .about-points{
     display:grid;
-
     grid-template-columns:
         repeat(2,1fr);
 
     gap:12px;
-
     margin-top:25px;
 }
 
@@ -716,7 +667,6 @@ section{
 
 .skills-grid{
     display:grid;
-
     grid-template-columns:
         repeat(2,1fr);
 
@@ -729,11 +679,8 @@ section{
 
 .skill-header{
     display:flex;
-
     align-items:center;
-
     gap:14px;
-
     margin-bottom:25px;
 }
 
@@ -772,7 +719,6 @@ section{
     margin-bottom:7px;
 
     color:#ddd;
-
     font-size:14px;
 }
 
@@ -782,7 +728,6 @@ section{
 
 .skill-bar{
     height:7px;
-
     overflow:hidden;
 
     border-radius:20px;
@@ -806,9 +751,7 @@ section{
 
 .timeline{
     max-width:900px;
-
     margin:auto;
-
     position:relative;
 }
 
@@ -835,7 +778,6 @@ section{
     position:relative;
 
     padding-left:65px;
-
     margin-bottom:35px;
 }
 
@@ -877,13 +819,11 @@ section{
 
 .timeline-card h3{
     font-size:24px;
-
     margin-bottom:4px;
 }
 
 .timeline-card h4{
     color:#bbb;
-
     margin-bottom:14px;
 }
 
@@ -893,21 +833,24 @@ section{
 
 .education-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:25px;
+
     max-width:1100px;
+
     margin:auto;
 }
 
 .education-card{
     max-width:900px;
-
     margin:auto;
 
     padding:35px;
 
     display:flex;
-
     align-items:center;
 
     gap:25px;
@@ -932,7 +875,6 @@ section{
 
 .education-card h3{
     font-size:24px;
-
     margin-bottom:6px;
 }
 
@@ -951,7 +893,6 @@ section{
 
 .project-card{
     overflow:hidden;
-
     position:relative;
 }
 
@@ -979,23 +920,18 @@ section{
 
 .project-content h3{
     font-size:24px;
-
     margin-bottom:10px;
 }
 
 .project-content p{
     color:var(--muted);
-
     line-height:1.7;
 }
 
 .project-tags{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:8px;
-
     margin:20px 0;
 }
 
@@ -1017,9 +953,7 @@ section{
 
 .project-buttons{
     display:flex;
-
     gap:10px;
-
     flex-wrap:wrap;
 }
 
@@ -1041,13 +975,11 @@ section{
 
 .project-btn:hover{
     background:var(--gradient);
-
     border-color:transparent;
 }
 
 .certificate{
     max-width:750px;
-
     margin:auto;
 
     padding:45px;
@@ -1078,7 +1010,6 @@ section{
 
 .certificate h3{
     font-size:27px;
-
     margin-bottom:12px;
 }
 
@@ -1092,7 +1023,6 @@ section{
 
 .certificate-meta{
     display:flex;
-
     justify-content:center;
 
     gap:12px;
@@ -1134,19 +1064,16 @@ section{
 
 .contact-info h3{
     font-size:27px;
-
     margin-bottom:15px;
 }
 
 .contact-info > p{
     color:var(--muted);
-
     margin-bottom:25px;
 }
 
 .contact-item{
     display:flex;
-
     align-items:center;
 
     gap:15px;
@@ -1211,7 +1138,6 @@ section{
 
 .form-group textarea{
     min-height:130px;
-
     resize:vertical;
 }
 
@@ -1279,7 +1205,6 @@ section{
 
 .social:hover{
     background:var(--gradient);
-
     transform:translateY(-4px);
 }
 
@@ -1323,7 +1248,6 @@ footer strong{
 
     .navbar{
         width:94%;
-
         justify-content:center;
     }
 
@@ -1334,9 +1258,7 @@ footer strong{
 
     .hero{
         grid-template-columns:1fr;
-
         text-align:center;
-
         gap:50px;
     }
 
@@ -1381,15 +1303,12 @@ footer strong{
 @media(max-width:650px){
 
     section{
-        padding:
-            105px 5% 70px;
+        padding:105px 5% 70px;
     }
 
     .navbar{
         top:12px;
-
         padding:6px;
-
         overflow:hidden;
     }
 
@@ -1407,11 +1326,8 @@ footer strong{
 
     .navbar.open{
         width:92%;
-
         border-radius:20px;
-
         flex-wrap:wrap;
-
         justify-content:center;
     }
 
@@ -1421,7 +1337,6 @@ footer strong{
 
     .navbar.open .menu-btn{
         position:absolute;
-
         right:7px;
         top:7px;
     }
@@ -1448,7 +1363,6 @@ footer strong{
 
     .education-card{
         flex-direction:column;
-
         text-align:center;
     }
 
@@ -1497,86 +1411,125 @@ footer strong{
     *,
     *::before,
     *::after{
+
         animation-duration:.01ms !important;
+
         animation-iteration-count:1 !important;
+
         scroll-behavior:auto !important;
+
         transition-duration:.01ms !important;
     }
 }
 
-
 /* =========================================================
    MOBILE ONLY - BEST VIEWED ON DESKTOP NOTICE
 ========================================================= */
+
 #desktop-message{
     display:none;
 }
 
 @media (max-width:768px){
+
     #desktop-message{
         position:fixed;
+
         top:72px;
         left:50%;
+
         transform:translateX(-50%);
+
         z-index:99999;
+
         display:flex;
+
         align-items:center;
         justify-content:center;
+
         width:max-content;
         max-width:90%;
+
         padding:15px 28px;
+
         background:#050505;
+
         color:#fff;
+
         border:1px solid rgba(255,255,255,.08);
+
         border-radius:60px;
-        box-shadow:0 12px 35px rgba(0,0,0,.4);
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,.4);
+
         white-space:nowrap;
     }
 
     #desktop-message .desktop-box{
+
         display:flex;
+
         align-items:center;
+
         gap:12px;
     }
 
     #desktop-message h2{
+
         margin:0;
+
         font-size:20px;
+
         font-weight:500;
+
         letter-spacing:.2px;
     }
 }
 
 @media (max-width:420px){
+
     #desktop-message{
+
         top:65px;
+
         padding:13px 20px;
     }
 
     #desktop-message h2{
+
         font-size:16px;
     }
 
     #desktop-message .desktop-box{
+
         gap:8px;
     }
 }
 
 </style>
+
 </head>
 
 <body>
 
 <!-- MOBILE ONLY: Best viewed on desktop -->
+
 <div id="desktop-message" aria-label="Best viewed on desktop">
+
     <div class="desktop-box">
+
         <span aria-hidden="true">🖥️</span>
+
         <h2>Best viewed on desktop</h2>
+
     </div>
+
 </div>
 
 
 <div class="scroll-progress" id="scrollProgress"></div>
+
 
 <nav class="navbar" id="navbar">
 
@@ -1635,15 +1588,19 @@ footer strong{
 
             </div>
 
+
             <h1>
 
                 Hi, I'm
 
                 <span class="gradient-text">
+
                     Nishant Dharav
+
                 </span>
 
             </h1>
+
 
             <h2>
 
@@ -1656,6 +1613,7 @@ footer strong{
 
             </h2>
 
+
             <p class="hero-description">
 
                 I build intelligent, creative and
@@ -1666,15 +1624,17 @@ footer strong{
 
             </p>
 
-
         </div>
+
 
         <div class="hero-visual reveal">
 
             <div class="ai-orb">
 
                 <div class="orb-core">
+
                     AI
+
                 </div>
 
             </div>
@@ -1757,9 +1717,11 @@ footer strong{
             </h2>
 
             <p>
+
                 A curious learner focused on
                 technology, innovation and
                 intelligent systems.
+
             </p>
 
         </div>
@@ -1770,33 +1732,79 @@ footer strong{
             <div class="profile-card glass reveal">
 
                 <div class="avatar">
+
                     ND
+
                 </div>
 
                 <h3>
+
                     Nishant Dharav
+
                 </h3>
 
                 <p>
+
                     AI/ML Student & Developer
+
                 </p>
+
 
                 <div class="socials">
 
-                    <a href="https://www.linkedin.com/in/nishant-dharav-a9338638a" target="_blank" rel="noopener noreferrer" class="social" aria-label="LinkedIn" title="LinkedIn">
+                    <a
+                        href="https://www.linkedin.com/in/nishant-dharav-a9338638a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                    >
+
                         <i class="fa-brands fa-linkedin-in"></i>
+
                     </a>
 
-                    <a href="https://www.instagram.com/nishant_dharav_09" target="_blank" rel="noopener noreferrer" class="social" aria-label="Instagram" title="Instagram">
+
+                    <a
+                        href="https://www.instagram.com/nishant_dharav_09"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="Instagram"
+                        title="Instagram"
+                    >
+
                         <i class="fa-brands fa-instagram"></i>
+
                     </a>
 
-                    <a href="https://github.com/nishantdharav09" target="_blank" rel="noopener noreferrer" class="social" aria-label="GitHub" title="GitHub">
+
+                    <a
+                        href="https://github.com/nishantdharav09"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="GitHub"
+                        title="GitHub"
+                    >
+
                         <i class="fa-brands fa-github"></i>
+
                     </a>
 
-                    <a href="https://wa.me/918177879563" target="_blank" rel="noopener noreferrer" class="social" aria-label="WhatsApp" title="WhatsApp">
+
+                    <a
+                        href="https://wa.me/918177879563"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="WhatsApp"
+                        title="WhatsApp"
+                    >
+
                         <i class="fa-brands fa-whatsapp"></i>
+
                     </a>
 
                 </div>
@@ -1840,19 +1848,30 @@ footer strong{
                 <div class="about-points">
 
                     <div class="about-point">
+
                         🤖 AI & Machine Learning
+
                     </div>
 
+
                     <div class="about-point">
+
                         💻 Software Development
+
                     </div>
 
+
                     <div class="about-point">
+
                         ☁️ Cloud Technologies
+
                     </div>
 
+
                     <div class="about-point">
+
                         🚀 Problem Solving
+
                     </div>
 
                 </div>
@@ -1881,8 +1900,10 @@ footer strong{
             </h2>
 
             <p>
+
                 Technologies and concepts
                 I am learning and working with.
+
             </p>
 
         </div>
@@ -1909,15 +1930,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Artificial Intelligence</span>
-                        <span>85%</span>
+
+                        <span>
+                            Artificial Intelligence
+                        </span>
+
+                        <span>
+                            85%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="85%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -1926,15 +1957,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Machine Learning</span>
-                        <span>80%</span>
+
+                        <span>
+                            Machine Learning
+                        </span>
+
+                        <span>
+                            80%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="80%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -1943,15 +1984,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Deep Learning</span>
-                        <span>70%</span>
+
+                        <span>
+                            Deep Learning
+                        </span>
+
+                        <span>
+                            70%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="70%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -1960,15 +2011,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Computer Vision</span>
-                        <span>70%</span>
+
+                        <span>
+                            Computer Vision
+                        </span>
+
+                        <span>
+                            70%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="70%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -1994,15 +2055,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Python</span>
-                        <span>90%</span>
+
+                        <span>
+                            Python
+                        </span>
+
+                        <span>
+                            90%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="90%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2011,15 +2082,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Java</span>
-                        <span>75%</span>
+
+                        <span>
+                            Java
+                        </span>
+
+                        <span>
+                            75%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="75%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2028,15 +2109,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>JavaScript</span>
-                        <span>75%</span>
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            75%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="75%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2045,15 +2136,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>SQL</span>
-                        <span>80%</span>
+
+                        <span>
+                            SQL
+                        </span>
+
+                        <span>
+                            80%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="80%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2079,15 +2180,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>HTML</span>
-                        <span>90%</span>
+
+                        <span>
+                            HTML
+                        </span>
+
+                        <span>
+                            90%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="90%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2096,15 +2207,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>CSS</span>
-                        <span>85%</span>
+
+                        <span>
+                            CSS
+                        </span>
+
+                        <span>
+                            85%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="85%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2113,15 +2234,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Node.js</span>
-                        <span>65%</span>
+
+                        <span>
+                            Node.js
+                        </span>
+
+                        <span>
+                            65%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="65%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2147,15 +2278,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>Cloud Computing</span>
-                        <span>70%</span>
+
+                        <span>
+                            Cloud Computing
+                        </span>
+
+                        <span>
+                            70%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="70%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2164,15 +2305,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>R Programming</span>
-                        <span>70%</span>
+
+                        <span>
+                            R Programming
+                        </span>
+
+                        <span>
+                            70%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="70%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2181,15 +2332,25 @@ footer strong{
                 <div class="skill">
 
                     <div class="skill-info">
-                        <span>C Programming</span>
-                        <span>70%</span>
+
+                        <span>
+                            C Programming
+                        </span>
+
+                        <span>
+                            70%
+                        </span>
+
                     </div>
 
+
                     <div class="skill-bar">
+
                         <div
                             class="skill-progress"
                             data-width="70%"
                         ></div>
+
                     </div>
 
                 </div>
@@ -2218,8 +2379,10 @@ footer strong{
             </h2>
 
             <p>
+
                 My learning and professional
                 journey so far.
+
             </p>
 
         </div>
@@ -2232,19 +2395,29 @@ footer strong{
 
                 <div class="timeline-dot"></div>
 
+
                 <div class="timeline-card glass">
 
                     <span class="timeline-date">
+
                         INTERNSHIP
+
                     </span>
 
+
                     <h3>
+
                         UI/UX Design Intern
+
                     </h3>
 
+
                     <h4>
+
                         Tiranex
+
                     </h4>
+
 
                     <p>
 
@@ -2264,19 +2437,29 @@ footer strong{
 
                 <div class="timeline-dot"></div>
 
+
                 <div class="timeline-card glass">
 
                     <span class="timeline-date">
+
                         PRESENT
+
                     </span>
 
+
                     <h3>
+
                         AI/ML Learning Journey
+
                     </h3>
 
+
                     <h4>
+
                         Self Development
+
                     </h4>
+
 
                     <p>
 
@@ -2321,36 +2504,67 @@ footer strong{
             <div class="education-card glass reveal">
 
                 <div class="education-icon">
+
                     🎓
+
                 </div>
 
+
                 <div>
-                    <span class="timeline-date">CURRENTLY PURSUING</span>
+
+                    <span class="timeline-date">
+                        CURRENTLY PURSUING
+                    </span>
+
+
                     <h3>
+
                         B.Tech in Artificial Intelligence
                         and Machine Learning
+
                     </h3>
+
+
                     <p>
+
                         JSPM University, Pune
+
                     </p>
+
                 </div>
 
             </div>
 
+
             <div class="education-card glass reveal">
 
                 <div class="education-icon">
+
                     🎓
+
                 </div>
 
+
                 <div>
-                    <span class="timeline-date">COMPLETED</span>
+
+                    <span class="timeline-date">
+                        COMPLETED
+                    </span>
+
+
                     <h3>
+
                         Diploma in Computer Technology
+
                     </h3>
+
+
                     <p>
+
                         S.I.E.T (POLY), Paniv
+
                     </p>
+
                 </div>
 
             </div>
@@ -2377,9 +2591,11 @@ footer strong{
             </h2>
 
             <p>
+
                 A selection of projects exploring
                 AI, Machine Learning and modern
                 web technologies.
+
             </p>
 
         </div>
@@ -2388,17 +2604,25 @@ footer strong{
         <div class="projects-grid">
 
 
+            <!-- WOMEN'S SAFETY PROJECT -->
+
             <div class="project-card glass reveal">
 
                 <div class="project-top">
+
                     🛡️
+
                 </div>
+
 
                 <div class="project-content">
 
                     <h3>
+
                         Women's Safety System
+
                     </h3>
+
 
                     <p>
 
@@ -2414,8 +2638,11 @@ footer strong{
                     <div class="project-tags">
 
                         <span>AI</span>
+
                         <span>Machine Learning</span>
+
                         <span>Python</span>
+
                         <span>Web Development</span>
 
                     </div>
@@ -2428,15 +2655,20 @@ footer strong{
                             class="project-btn"
                             target="_blank"
                         >
+
                             GitHub →
+
                         </a>
+
 
                         <a
                             href="#"
                             class="project-btn"
                             target="_blank"
                         >
+
                             Live Demo →
+
                         </a>
 
                     </div>
@@ -2446,25 +2678,34 @@ footer strong{
             </div>
 
 
+            <!-- EDUPREDICT PROJECT -->
+
             <div class="project-card glass reveal">
 
                 <div class="project-top">
-                    🤖
+
+                    🎓
+
                 </div>
+
 
                 <div class="project-content">
 
                     <h3>
-                        AI / ML Project
+
+                        EduPredict – Student Performance AI
+
                     </h3>
+
 
                     <p>
 
-                        An upcoming project focused
-                        on applying machine learning
-                        and intelligent algorithms to
-                        solve a practical real-world
-                        problem.
+                        An AI-powered Machine Learning
+                        application that predicts a
+                        student's final marks based on
+                        study hours, attendance, previous
+                        marks, assignment score, internal
+                        marks and participation.
 
                     </p>
 
@@ -2472,8 +2713,14 @@ footer strong{
                     <div class="project-tags">
 
                         <span>Python</span>
-                        <span>AI/ML</span>
-                        <span>Data</span>
+
+                        <span>Pandas</span>
+
+                        <span>Scikit-learn</span>
+
+                        <span>Machine Learning</span>
+
+                        <span>Streamlit</span>
 
                     </div>
 
@@ -2481,10 +2728,26 @@ footer strong{
                     <div class="project-buttons">
 
                         <a
-                            href="#"
+                            href="https://github.com/nishantdharav09/StudentPerformanceAI"
                             class="project-btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            Coming Soon
+
+                            GitHub →
+
+                        </a>
+
+
+                        <a
+                            href="https://studentperformanceai.streamlit.app/"
+                            class="project-btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            Live Demo →
+
                         </a>
 
                     </div>
@@ -2494,17 +2757,25 @@ footer strong{
             </div>
 
 
+            <!-- AI PORTFOLIO -->
+
             <div class="project-card glass reveal">
 
                 <div class="project-top">
+
                     🌐
+
                 </div>
+
 
                 <div class="project-content">
 
                     <h3>
+
                         AI Portfolio
+
                     </h3>
+
 
                     <p>
 
@@ -2519,8 +2790,11 @@ footer strong{
                     <div class="project-tags">
 
                         <span>HTML</span>
+
                         <span>CSS</span>
+
                         <span>JavaScript</span>
+
                         <span>UI/UX</span>
 
                     </div>
@@ -2532,7 +2806,9 @@ footer strong{
                             href="#"
                             class="project-btn"
                         >
+
                             Current Website
+
                         </a>
 
                     </div>
@@ -2542,17 +2818,25 @@ footer strong{
             </div>
 
 
+            <!-- MORE PROJECTS -->
+
             <div class="project-card glass reveal">
 
                 <div class="project-top">
+
                     🚀
+
                 </div>
+
 
                 <div class="project-content">
 
                     <h3>
+
                         More Projects Coming Soon
+
                     </h3>
+
 
                     <p>
 
@@ -2568,8 +2852,11 @@ footer strong{
                     <div class="project-tags">
 
                         <span>Python</span>
+
                         <span>AI</span>
+
                         <span>ML</span>
+
                         <span>Cloud</span>
 
                     </div>
@@ -2605,13 +2892,17 @@ footer strong{
         <div class="certificate glass reveal">
 
             <div class="certificate-badge">
+
                 UX
+
             </div>
 
 
             <h3>
+
                 Tiranex Internship Certification
                 of UI/UX Designing
+
             </h3>
 
 
@@ -2649,7 +2940,9 @@ footer strong{
                     target="_blank"
                     class="btn btn-primary"
                 >
+
                     📜 View Certificate
+
                 </a>
 
             </div>
@@ -2676,8 +2969,10 @@ footer strong{
             </h2>
 
             <p>
+
                 Have an idea, opportunity or
                 project? Let's connect.
+
             </p>
 
         </div>
@@ -2689,8 +2984,10 @@ footer strong{
             <div class="contact-info glass reveal">
 
                 <h3>
+
                     Let's build something
                     amazing 🚀
+
                 </h3>
 
 
@@ -2707,11 +3004,16 @@ footer strong{
                 <div class="contact-item">
 
                     <div class="contact-icon">
+
                         📧
+
                     </div>
 
+
                     <a href="mailto:nishantdharav@gmail.com">
+
                         nishantdharav@gmail.com
+
                     </a>
 
                 </div>
@@ -2721,36 +3023,69 @@ footer strong{
 
                 <div class="contact-item">
 
-                    <div class="contact-icon" aria-label="WhatsApp">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                    <div
+                        class="contact-icon"
+                        aria-label="WhatsApp"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="22"
+                            height="22"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
                             <path d="M12 2a9.9 9.9 0 0 0-8.54 14.9L2 22l5.27-1.38A9.9 9.9 0 1 0 12 2Zm0 2a7.9 7.9 0 0 1 6.84 11.85 7.9 7.9 0 0 1-9.92 3.4l-.45-.22-3.13.82.84-3.04-.24-.47A7.9 7.9 0 1 1 12 4Z"/>
+
                         </svg>
+
                     </div>
+
 
                     <a
                         href="https://wa.me/918177879563"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+
                         +91 8177879563
+
                     </a>
 
                 </div>
 
+
                 <div class="contact-item">
 
-                    <div class="contact-icon" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                    <div
+                        class="contact-icon"
+                        aria-label="GitHub"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="22"
+                            height="22"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
                             <path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.12c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.99 1.75 2.94 1.24.1-.77.39-1.3.71-1.6-2.51-.29-5.15-1.26-5.15-5.6 0-1.24.44-2.25 1.16-3.04-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.1 1.16A10.7 10.7 0 0 1 12 5.28c.96 0 1.92.13 2.82.38 2.15-1.46 3.1-1.16 3.1-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.04 0 4.35-2.65 5.3-5.17 5.59.4.35.76 1.04.76 2.1v3.11c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/>
+
                         </svg>
+
                     </div>
+
 
                     <a
                         href="https://github.com/nishantdharav09"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+
                         github.com/nishantdharav09
+
                     </a>
 
                 </div>
@@ -2759,11 +3094,16 @@ footer strong{
                 <div class="contact-item">
 
                     <div class="contact-icon">
+
                         📍
+
                     </div>
 
+
                     <span>
+
                         Pune, Maharashtra, India
+
                     </span>
 
                 </div>
@@ -2771,20 +3111,59 @@ footer strong{
 
                 <div class="socials">
 
-                    <a href="https://www.linkedin.com/in/nishant-dharav-a9338638a" target="_blank" rel="noopener noreferrer" class="social" aria-label="LinkedIn" title="LinkedIn">
+                    <a
+                        href="https://www.linkedin.com/in/nishant-dharav-a9338638a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                    >
+
                         <i class="fa-brands fa-linkedin-in"></i>
+
                     </a>
 
-                    <a href="https://www.instagram.com/nishant_dharav_09" target="_blank" rel="noopener noreferrer" class="social" aria-label="Instagram" title="Instagram">
+
+                    <a
+                        href="https://www.instagram.com/nishant_dharav_09"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="Instagram"
+                        title="Instagram"
+                    >
+
                         <i class="fa-brands fa-instagram"></i>
+
                     </a>
 
-                    <a href="https://github.com/nishantdharav09" target="_blank" rel="noopener noreferrer" class="social" aria-label="GitHub" title="GitHub">
+
+                    <a
+                        href="https://github.com/nishantdharav09"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="GitHub"
+                        title="GitHub"
+                    >
+
                         <i class="fa-brands fa-github"></i>
+
                     </a>
 
-                    <a href="https://wa.me/918177879563" target="_blank" rel="noopener noreferrer" class="social" aria-label="WhatsApp" title="WhatsApp">
+
+                    <a
+                        href="https://wa.me/918177879563"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social"
+                        aria-label="WhatsApp"
+                        title="WhatsApp"
+                    >
+
                         <i class="fa-brands fa-whatsapp"></i>
+
                     </a>
 
                 </div>
@@ -2804,6 +3183,7 @@ footer strong{
                             Your Name
                         </label>
 
+
                         <input
                             type="text"
                             id="name"
@@ -2819,6 +3199,7 @@ footer strong{
                         <label>
                             Your Email
                         </label>
+
 
                         <input
                             type="email"
@@ -2836,6 +3217,7 @@ footer strong{
                             Message
                         </label>
 
+
                         <textarea
                             id="message"
                             placeholder="Write your message..."
@@ -2849,7 +3231,9 @@ footer strong{
                         type="submit"
                         class="submit-btn"
                     >
+
                         Send Message 🚀
+
                     </button>
 
                 </form>
@@ -2868,6 +3252,7 @@ footer strong{
 <footer>
 
     © 2026
+
     <strong>Nishant Dharav</strong>.
 
     All Rights Reserved.
@@ -2885,21 +3270,27 @@ const typingElement =
     document.getElementById("typing");
 
 const roles = [
+
     "Developer",
     "AI Enthusiast",
     "Machine Learning Learner",
     "Python Developer",
     "Problem Solver"
+
 ];
 
 let roleIndex = 0;
+
 let charIndex = 0;
+
 let deleting = false;
+
 
 function typeEffect(){
 
     const currentRole =
         roles[roleIndex];
+
 
     if(!deleting){
 
@@ -2910,6 +3301,7 @@ function typeEffect(){
             );
 
         charIndex++;
+
 
         if(
             charIndex ===
@@ -2924,7 +3316,9 @@ function typeEffect(){
             );
 
             return;
+
         }
+
 
         setTimeout(
             typeEffect,
@@ -2941,6 +3335,7 @@ function typeEffect(){
 
         charIndex--;
 
+
         if(charIndex === 0){
 
             deleting = false;
@@ -2948,13 +3343,17 @@ function typeEffect(){
             roleIndex =
                 (roleIndex + 1) %
                 roles.length;
+
         }
+
 
         setTimeout(
             typeEffect,
             50
         );
+
     }
+
 }
 
 typeEffect();
@@ -2970,6 +3369,7 @@ const navbar =
 const menuBtn =
     document.getElementById("menuBtn");
 
+
 menuBtn.addEventListener(
     "click",
     function(){
@@ -2980,6 +3380,7 @@ menuBtn.addEventListener(
             navbar.classList.contains("open")
                 ? "✕"
                 : "☰";
+
     }
 );
 
@@ -3019,15 +3420,18 @@ const navLinks =
         ".navbar a"
     );
 
+
 function updateActiveNav(){
 
     let current = "";
+
 
     sections.forEach(
         section => {
 
             const sectionTop =
                 section.offsetTop - 220;
+
 
             if(
                 window.scrollY >=
@@ -3038,10 +3442,12 @@ function updateActiveNav(){
                     section.getAttribute(
                         "id"
                     );
+
             }
 
         }
     );
+
 
     navLinks.forEach(
         link => {
@@ -3049,6 +3455,7 @@ function updateActiveNav(){
             link.classList.remove(
                 "active"
             );
+
 
             if(
                 link.getAttribute("href")
@@ -3059,11 +3466,14 @@ function updateActiveNav(){
                 link.classList.add(
                     "active"
                 );
+
             }
 
         }
     );
+
 }
+
 
 window.addEventListener(
     "scroll",
@@ -3080,12 +3490,14 @@ const progress =
         "scrollProgress"
     );
 
+
 window.addEventListener(
     "scroll",
     function(){
 
         const scrollTop =
             window.scrollY;
+
 
         const documentHeight =
             document.documentElement
@@ -3094,13 +3506,16 @@ window.addEventListener(
             document.documentElement
                 .clientHeight;
 
+
         const percentage =
             (scrollTop /
                 documentHeight) *
             100;
 
+
         progress.style.width =
             percentage + "%";
+
     }
 );
 
@@ -3113,6 +3528,7 @@ const revealElements =
     document.querySelectorAll(
         ".reveal"
     );
+
 
 const revealObserver =
     new IntersectionObserver(
@@ -3161,6 +3577,7 @@ const skillBars =
         ".skill-progress"
     );
 
+
 const skillObserver =
     new IntersectionObserver(
         entries => {
@@ -3176,6 +3593,7 @@ const skillObserver =
                             entry.target
                                 .dataset
                                 .width;
+
 
                         entry.target.style.width =
                             width;
@@ -3212,21 +3630,25 @@ const contactForm =
         "contactForm"
     );
 
+
 contactForm.addEventListener(
     "submit",
     function(event){
 
         event.preventDefault();
 
+
         const name =
             document.getElementById(
                 "name"
             ).value.trim();
 
+
         const email =
             document.getElementById(
                 "email"
             ).value.trim();
+
 
         const message =
             document.getElementById(
@@ -3245,6 +3667,7 @@ contactForm.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -3295,6 +3718,7 @@ document.addEventListener(
 
             menuBtn.textContent =
                 "☰";
+
         }
 
     }
@@ -3304,14 +3728,25 @@ document.addEventListener(
 /* =========================================================
    MOBILE DESKTOP NOTICE - HIDE AFTER 2 SECONDS
 ========================================================= */
+
 setTimeout(function(){
-    const desktopMessage = document.getElementById("desktop-message");
+
+    const desktopMessage =
+        document.getElementById(
+            "desktop-message"
+        );
+
+
     if(desktopMessage){
+
         desktopMessage.remove();
+
     }
+
 }, 2000);
 
 </script>
 
 </body>
+
 </html>
