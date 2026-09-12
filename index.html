@@ -1244,6 +1244,67 @@ footer strong{
     transform:translateY(0);
 }
 
+/* =========================================================
+   COMING SOON MODAL
+========================================================= */
+
+#comingSoonModal{
+    position:fixed;
+    inset:0;
+    z-index:6000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(12px);
+}
+
+#comingSoonModal.show{
+    display:flex;
+}
+
+.coming-soon-card{
+    width:min(430px,100%);
+    padding:36px 30px;
+    text-align:center;
+    background:rgba(8,8,20,.94);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:26px;
+    box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 35px rgba(56,189,248,.12);
+    animation:comingSoonIn .25s ease;
+}
+
+.coming-soon-icon{
+    width:76px;
+    height:76px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:22px;
+    background:var(--gradient);
+    font-size:34px;
+    box-shadow:0 0 30px rgba(56,189,248,.22);
+}
+
+.coming-soon-card h3{
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+.coming-soon-card p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+@keyframes comingSoonIn{
+    from{transform:translateY(14px) scale(.98);opacity:0}
+    to{transform:translateY(0) scale(1);opacity:1}
+}
+
+
 @media(max-width:900px){
 
     .navbar{
@@ -2653,7 +2714,7 @@ footer strong{
                         <a
                             href="#"
                             class="project-btn"
-                            target="_blank"
+                            onclick="showComingSoon(event)"
                         >
 
                             GitHub →
@@ -2664,7 +2725,81 @@ footer strong{
                         <a
                             href="#"
                             class="project-btn"
+                            onclick="showComingSoon(event)"
+                        >
+
+                            Live Demo →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI RESUME ANALYZER -->
+
+            <div class="project-card glass reveal">
+
+                <div class="project-top">
+
+                    📄
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+
+                        AI Resume Analyzer
+
+                    </h3>
+
+
+                    <p>
+
+                        An AI-powered resume analysis platform that detects skills, scores resumes, matches suitable job roles, identifies skill gaps and generates downloadable analysis reports.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Python</span>
+
+                        <span>NLP</span>
+
+                        <span>Scikit-learn</span>
+
+                        <span>Streamlit</span>
+
+                        <span>Pandas</span>
+
+                    </div>
+
+
+                    <div class="project-buttons">
+
+                        <a
+                            href="https://github.com/nishantdharav09/ai-resume-analyzer"
+                            class="project-btn"
                             target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            GitHub →
+
+                        </a>
+
+
+                        <a
+                            href="https://ai-resume-analyzergit-fy32tfapxpy3r8xisrhgok.streamlit.app/"
+                            class="project-btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
 
                             Live Demo →
@@ -2952,6 +3087,31 @@ footer strong{
     </div>
 
 </section>
+
+
+<!-- COMING SOON MODAL -->
+
+<div id="comingSoonModal" aria-hidden="true">
+
+    <div class="coming-soon-card" role="dialog" aria-modal="true" aria-labelledby="comingSoonTitle">
+
+        <div class="coming-soon-icon">🚀</div>
+
+        <h3 id="comingSoonTitle">Coming Soon</h3>
+
+        <p id="comingSoonText">The Women's Safety System project is currently being prepared for release.</p>
+
+        <button
+            type="button"
+            class="btn btn-primary"
+            onclick="closeComingSoon()"
+        >
+            Close
+        </button>
+
+    </div>
+
+</div>
 
 
 <!-- CONTACT -->
@@ -3616,6 +3776,82 @@ skillBars.forEach(
         skillObserver.observe(
             bar
         );
+
+    }
+);
+
+
+/* =========================================================
+   COMING SOON MODAL
+========================================================= */
+
+const comingSoonModal =
+    document.getElementById(
+        "comingSoonModal"
+    );
+
+
+function showComingSoon(event){
+
+    event.preventDefault();
+
+    if(comingSoonModal){
+
+        comingSoonModal.classList.add(
+            "show"
+        );
+
+        comingSoonModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+    }
+
+}
+
+
+function closeComingSoon(){
+
+    if(comingSoonModal){
+
+        comingSoonModal.classList.remove(
+            "show"
+        );
+
+        comingSoonModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+    }
+
+}
+
+
+if(comingSoonModal){
+
+    comingSoonModal.addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === comingSoonModal){
+                closeComingSoon();
+            }
+
+        }
+    );
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+            closeComingSoon();
+        }
 
     }
 );
