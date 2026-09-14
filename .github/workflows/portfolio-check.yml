@@ -1,0 +1,26 @@
+name: Portfolio Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Check HTML file
+        run: |
+          test -f index.html
+          echo "index.html found successfully!"
+
+      - name: Check project files
+        run: |
+          echo "Portfolio files:"
+          ls -la
+          echo "Portfolio check completed successfully!"
