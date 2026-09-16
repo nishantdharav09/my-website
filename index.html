@@ -1505,12 +1505,379 @@ footer strong{
     }
 }
 
+
+/* =========================================================
+   CURSOR-REACTIVE FLUID LIVE WALLPAPER
+   No squares / no grid — matches the portfolio theme
+========================================================= */
+
+#cursorGrid{
+    position:fixed;
+    inset:-35%;
+    z-index:-8;
+    pointer-events:none;
+    opacity:.72;
+    filter:blur(55px);
+    will-change:transform;
+
+    background:
+        radial-gradient(
+            circle at 25% 35%,
+            rgba(139,92,246,.28) 0%,
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(56,189,248,.22) 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 55% 75%,
+            rgba(236,72,153,.20) 0%,
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(139,92,246,.08) 0%,
+            transparent 42%
+        );
+
+    animation:fluidDrift 14s ease-in-out infinite alternate;
+}
+
+#cursorGrid::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgba(56,189,248,.09),
+            transparent 42%
+        );
+}
+
+#cursorGlow{
+    position:fixed;
+    width:520px;
+    height:520px;
+    left:0;
+    top:0;
+    z-index:-7;
+    pointer-events:none;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.16) 0%,
+            rgba(56,189,248,.11) 22%,
+            rgba(236,72,153,.07) 38%,
+            transparent 68%
+        );
+
+    transform:translate3d(-50%,-50%,0);
+    filter:blur(18px);
+    opacity:.85;
+    will-change:transform;
+}
+
+@keyframes fluidDrift{
+    0%{
+        transform:translate3d(-2%,-1%,0) scale(1);
+    }
+    50%{
+        transform:translate3d(2%,2%,0) scale(1.06);
+    }
+    100%{
+        transform:translate3d(-1%,3%,0) scale(1.1);
+    }
+}
+
+@media(max-width:768px){
+    #cursorGrid{
+        opacity:.42;
+        filter:blur(45px);
+    }
+
+    #cursorGlow{
+        width:320px;
+        height:320px;
+        opacity:.5;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    #cursorGrid{
+        animation:none;
+    }
+
+    #cursorGlow{
+        display:none;
+    }
+}
+
+
+/* ===== Premium cursor aura + particle trail ===== */
+#cursor-aura{
+    position:fixed;
+    width:180px;
+    height:180px;
+    left:0;
+    top:0;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    transform:translate(-50%,-50%);
+    background:
+        radial-gradient(circle,
+            rgba(168,85,247,.20) 0%,
+            rgba(56,189,248,.12) 30%,
+            rgba(236,72,153,.06) 52%,
+            transparent 72%);
+    filter:blur(2px);
+    mix-blend-mode:screen;
+    opacity:0;
+    transition:opacity .25s ease;
+}
+
+#cursor-dot{
+    position:fixed;
+    width:7px;
+    height:7px;
+    left:0;
+    top:0;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    box-shadow:
+        0 0 8px rgba(255,255,255,.9),
+        0 0 20px rgba(56,189,248,.75),
+        0 0 30px rgba(168,85,247,.55);
+    opacity:0;
+}
+
+.cursor-spark{
+    position:fixed;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9997;
+    transform:translate(-50%,-50%);
+    background:rgba(168,85,247,.9);
+    box-shadow:0 0 12px rgba(56,189,248,.65);
+    animation:cursorSpark .7s ease-out forwards;
+}
+
+@keyframes cursorSpark{
+    0%{
+        opacity:.95;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    100%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.05);
+    }
+}
+
+/* A subtle lift for interactive cards/buttons */
+@media (hover:hover) and (pointer:fine){
+    .project-card,
+    .skill-card,
+    .cert-card,
+    .contact-card,
+    .stat-card{
+        transition:
+            transform .35s cubic-bezier(.2,.8,.2,1),
+            box-shadow .35s ease,
+            border-color .35s ease;
+    }
+
+    .project-card:hover,
+    .skill-card:hover,
+    .cert-card:hover,
+    .contact-card:hover,
+    .stat-card:hover{
+        transform:translateY(-7px);
+    }
+}
+
+@media (max-width:700px){
+    #cursor-aura,
+    #cursor-dot,
+    .cursor-spark{
+        display:none;
+    }
+}
+
+
+/* ===== Apple / MacBook style typography ===== */
+html, body, button, input, textarea, select {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    letter-spacing: -0.025em;
+}
+
+p, span, a, li, button, input, textarea {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+}
+
+
+/* ===== Premium Professional Interactive Layer ===== */
+#premium-spotlight{
+    position:fixed;
+    width:420px;
+    height:420px;
+    left:0;
+    top:0;
+    pointer-events:none;
+    z-index:9996;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(139,92,246,.10) 0%,
+        rgba(59,130,246,.055) 28%,
+        rgba(236,72,153,.025) 48%,
+        transparent 70%
+    );
+    filter:blur(8px);
+    opacity:0;
+    transition:opacity .35s ease;
+}
+
+.premium-card{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+.premium-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+    border-radius:inherit;
+    background:
+        radial-gradient(
+            280px circle at var(--mx,50%) var(--my,50%),
+            rgba(255,255,255,.10),
+            rgba(139,92,246,.055) 25%,
+            transparent 58%
+        );
+    opacity:0;
+    transition:opacity .35s ease;
+}
+
+.premium-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:3;
+    border-radius:inherit;
+    padding:1px;
+    background:
+        radial-gradient(
+            220px circle at var(--mx,50%) var(--my,50%),
+            rgba(255,255,255,.55),
+            rgba(139,92,246,.22) 28%,
+            transparent 65%
+        );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0;
+    transition:opacity .35s ease;
+}
+
+.premium-card:hover::before,
+.premium-card:hover::after{
+    opacity:1;
+}
+
+.premium-card > *{
+    position:relative;
+    z-index:4;
+}
+
+/* Very subtle depth — professional, not flashy */
+@media (hover:hover) and (pointer:fine){
+    .premium-card{
+        transition:
+            transform .18s ease-out,
+            box-shadow .35s ease,
+            border-color .35s ease;
+        will-change:transform;
+    }
+
+    .premium-card:hover{
+        box-shadow:
+            0 18px 50px rgba(0,0,0,.30),
+            0 0 35px rgba(99,102,241,.07);
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    #premium-spotlight{
+        display:none;
+    }
+    .premium-card{
+        transform:none !important;
+        transition:none !important;
+    }
+}
+
 </style>
 
 </head>
 
 
 <body>
+
+<div id="cursor-aura" aria-hidden="true"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="premium-spotlight" aria-hidden="true"></div>
+
+
+<!-- CURSOR LIVE WALLPAPER -->
+<div id="cursorGrid" aria-hidden="true"></div>
+<div id="cursorGlow" aria-hidden="true"></div>
+
 
 
 <!-- MOBILE DESKTOP MESSAGE -->
@@ -3114,6 +3481,106 @@ footer strong{
 <script>
 
 /* =========================================================
+   CURSOR LIVE WALLPAPER EFFECT
+========================================================= */
+
+const cursorGrid =
+    document.getElementById("cursorGrid");
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+let targetMouseX = window.innerWidth / 2;
+let targetMouseY = window.innerHeight / 2;
+
+let currentMouseX = targetMouseX;
+let currentMouseY = targetMouseY;
+
+let targetGridX = 0;
+let targetGridY = 0;
+
+let currentGridX = 0;
+let currentGridY = 0;
+
+let lastMouseMove = 0;
+
+window.addEventListener(
+    "mousemove",
+    function(event){
+
+        targetMouseX = event.clientX;
+        targetMouseY = event.clientY;
+
+        const x =
+            (event.clientX / window.innerWidth) - 0.5;
+
+        const y =
+            (event.clientY / window.innerHeight) - 0.5;
+
+        /*
+         * Smooth fluid parallax movement:
+         * the ambient light gently follows the cursor
+         */
+        targetGridX = x * -45;
+        targetGridY = y * -30;
+
+        lastMouseMove = performance.now();
+
+    },
+    { passive:true }
+);
+
+
+function animateCursorWallpaper(){
+
+    currentMouseX +=
+        (targetMouseX - currentMouseX) * 0.08;
+
+    currentMouseY +=
+        (targetMouseY - currentMouseY) * 0.08;
+
+    currentGridX +=
+        (targetGridX - currentGridX) * 0.045;
+
+    currentGridY +=
+        (targetGridY - currentGridY) * 0.045;
+
+
+    if(cursorGrid){
+
+        cursorGrid.style.transform =
+            "translate3d(" +
+            currentGridX +
+            "px," +
+            currentGridY +
+            "px,0)";
+
+    }
+
+
+    if(cursorGlow){
+
+        cursorGlow.style.transform =
+            "translate3d(" +
+            currentMouseX +
+            "px," +
+            currentMouseY +
+            "px,0) " +
+            "translate3d(-50%,-50%,0)";
+
+    }
+
+
+    requestAnimationFrame(
+        animateCursorWallpaper
+    );
+
+}
+
+animateCursorWallpaper();
+
+
+/* =========================================================
    TYPING ANIMATION
 ========================================================= */
 
@@ -3598,9 +4065,204 @@ setTimeout(function(){
 
 }, 2000);
 
+
+/* =========================================================
+   PREMIUM CURSOR AURA + LIVE PARTICLE TRAIL
+========================================================= */
+
+(function(){
+
+    const aura = document.getElementById("cursor-aura");
+    const dot = document.getElementById("cursor-dot");
+
+    if(!aura || !dot) return;
+
+    const finePointer =
+        window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+    if(!finePointer) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let auraX = mouseX;
+    let auraY = mouseY;
+    let dotX = mouseX;
+    let dotY = mouseY;
+    let visible = false;
+    let lastSpark = 0;
+
+    document.addEventListener("mousemove", function(e){
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        if(!visible){
+            visible = true;
+            aura.style.opacity = ".95";
+            dot.style.opacity = "1";
+        }
+
+        /* Small theme-matching sparks */
+        const now = performance.now();
+
+        if(now - lastSpark > 34){
+
+            const spark = document.createElement("span");
+            spark.className = "cursor-spark";
+
+            const spreadX = (Math.random() - .5) * 20;
+            const spreadY = (Math.random() - .5) * 20;
+
+            spark.style.left = (mouseX + spreadX) + "px";
+            spark.style.top = (mouseY + spreadY) + "px";
+
+            const size = 2 + Math.random() * 5;
+            spark.style.width = size + "px";
+            spark.style.height = size + "px";
+
+            /* Purple / blue / pink shades that match the portfolio */
+            const shades = [
+                "rgba(168,85,247,.9)",
+                "rgba(56,189,248,.9)",
+                "rgba(236,72,153,.9)"
+            ];
+
+            spark.style.background =
+                shades[Math.floor(Math.random() * shades.length)];
+
+            spark.style.boxShadow =
+                "0 0 12px " +
+                spark.style.background;
+
+            document.body.appendChild(spark);
+
+            setTimeout(function(){
+                spark.remove();
+            }, 720);
+
+            lastSpark = now;
+        }
+    });
+
+    document.addEventListener("mouseleave", function(){
+        visible = false;
+        aura.style.opacity = "0";
+        dot.style.opacity = "0";
+    });
+
+    document.addEventListener("mouseenter", function(){
+        visible = true;
+        aura.style.opacity = ".95";
+        dot.style.opacity = "1";
+    });
+
+    function animateCursor(){
+
+        /* Smooth magnetic movement */
+        auraX += (mouseX - auraX) * .075;
+        auraY += (mouseY - auraY) * .075;
+
+        dotX += (mouseX - dotX) * .35;
+        dotY += (mouseY - dotY) * .35;
+
+        aura.style.left = auraX + "px";
+        aura.style.top = auraY + "px";
+
+        dot.style.left = dotX + "px";
+        dot.style.top = dotY + "px";
+
+        requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+})();
+
 </script>
 
 
+<script>
+
+/* =========================================================
+   PREMIUM PROFESSIONAL SPOTLIGHT + CARD DEPTH
+========================================================= */
+(function(){
+
+    const spotlight = document.getElementById("premium-spotlight");
+
+    if(!spotlight) return;
+
+    const finePointer =
+        window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+    if(!finePointer) return;
+
+    let sx = window.innerWidth / 2;
+    let sy = window.innerHeight / 2;
+    let tx = sx;
+    let ty = sy;
+
+    const cards = document.querySelectorAll(
+        ".project-card, .skill-card, .cert-card, .contact-card, .stat-card"
+    );
+
+    cards.forEach(card => {
+        card.classList.add("premium-card");
+
+        card.addEventListener("mousemove", function(e){
+
+            const r = card.getBoundingClientRect();
+
+            const x = e.clientX - r.left;
+            const y = e.clientY - r.top;
+
+            card.style.setProperty("--mx", x + "px");
+            card.style.setProperty("--my", y + "px");
+
+            /* Maximum tilt is intentionally tiny for a professional feel */
+            const rotateY = ((x / r.width) - .5) * 2.2;
+            const rotateX = ((y / r.height) - .5) * -2.2;
+
+            card.style.transform =
+                "perspective(900px) rotateX(" +
+                rotateX.toFixed(2) +
+                "deg) rotateY(" +
+                rotateY.toFixed(2) +
+                "deg) translateY(-4px)";
+        });
+
+        card.addEventListener("mouseleave", function(){
+            card.style.transform = "";
+        });
+    });
+
+    document.addEventListener("mousemove", function(e){
+        tx = e.clientX;
+        ty = e.clientY;
+
+        spotlight.style.opacity = "1";
+    });
+
+    document.addEventListener("mouseleave", function(){
+        spotlight.style.opacity = "0";
+    });
+
+    function animate(){
+
+        sx += (tx - sx) * .075;
+        sy += (ty - sy) * .075;
+
+        spotlight.style.left = sx + "px";
+        spotlight.style.top = sy + "px";
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+})();
+
+</script>
 </body>
 
 </html>
