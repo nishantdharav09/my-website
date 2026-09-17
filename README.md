@@ -22,8 +22,7 @@ A personal portfolio website to showcase my skills, education, projects, experie
 - Font Awesome
 
 ## 🚀 Live Portfolio
-
-Coming Soon
+nishantdharav.vercel.app
 
 ## 👨‍💻 Author
 
