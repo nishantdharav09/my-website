@@ -1572,15 +1572,15 @@ footer strong{
     background:
         radial-gradient(
             circle,
-            rgba(139,92,246,.16) 0%,
-            rgba(56,189,248,.11) 22%,
-            rgba(236,72,153,.07) 38%,
+            rgba(139,92,246,.10) 0%,
+            rgba(56,189,248,.07) 22%,
+            rgba(236,72,153,.045) 38%,
             transparent 68%
         );
 
     transform:translate3d(-50%,-50%,0);
     filter:blur(18px);
-    opacity:.85;
+    opacity:.58;
     will-change:transform;
 }
 
@@ -1597,15 +1597,27 @@ footer strong{
 }
 
 @media(max-width:768px){
-    #cursorGrid{
-        opacity:.42;
-        filter:blur(45px);
+    /* Lightweight mobile mode: no cursor-following blur layers. */
+    #cursorGrid,
+    #cursorGlow{
+        display:none;
     }
 
-    #cursorGlow{
-        width:320px;
-        height:320px;
-        opacity:.5;
+    /* Keep the atmosphere but stop continuous background animation on phones. */
+    body::before{
+        animation:none;
+    }
+
+    body::after{
+        animation:none;
+        filter:blur(35px);
+    }
+
+    /* Avoid expensive backdrop blur on mobile GPUs. */
+    .glass{
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+        background:rgba(12,12,28,.78);
     }
 }
 
@@ -1633,9 +1645,9 @@ footer strong{
     transform:translate(-50%,-50%);
     background:
         radial-gradient(circle,
-            rgba(168,85,247,.20) 0%,
-            rgba(56,189,248,.12) 30%,
-            rgba(236,72,153,.06) 52%,
+            rgba(168,85,247,.12) 0%,
+            rgba(56,189,248,.07) 30%,
+            rgba(236,72,153,.035) 52%,
             transparent 72%);
     filter:blur(2px);
     mix-blend-mode:screen;
@@ -1643,23 +1655,6 @@ footer strong{
     transition:opacity .25s ease;
 }
 
-#cursor-dot{
-    position:fixed;
-    width:7px;
-    height:7px;
-    left:0;
-    top:0;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:10000;
-    transform:translate(-50%,-50%);
-    background:#fff;
-    box-shadow:
-        0 0 8px rgba(255,255,255,.9),
-        0 0 20px rgba(56,189,248,.75),
-        0 0 30px rgba(168,85,247,.55);
-    opacity:0;
-}
 
 .cursor-spark{
     position:fixed;
@@ -1669,14 +1664,14 @@ footer strong{
     pointer-events:none;
     z-index:9997;
     transform:translate(-50%,-50%);
-    background:rgba(168,85,247,.9);
+    background:rgba(168,85,247,.62);
     box-shadow:0 0 12px rgba(56,189,248,.65);
     animation:cursorSpark .7s ease-out forwards;
 }
 
 @keyframes cursorSpark{
     0%{
-        opacity:.95;
+        opacity:.72;
         transform:translate(-50%,-50%) scale(1);
     }
     100%{
@@ -1709,7 +1704,6 @@ footer strong{
 
 @media (max-width:700px){
     #cursor-aura,
-    #cursor-dot,
     .cursor-spark{
         display:none;
     }
@@ -1870,7 +1864,6 @@ p, span, a, li, button, input, textarea {
 <body>
 
 <div id="cursor-aura" aria-hidden="true"></div>
-<div id="cursor-dot" aria-hidden="true"></div>
 <div id="premium-spotlight" aria-hidden="true"></div>
 
 
@@ -3484,100 +3477,55 @@ p, span, a, li, button, input, textarea {
    CURSOR LIVE WALLPAPER EFFECT
 ========================================================= */
 
-const cursorGrid =
-    document.getElementById("cursorGrid");
-
-const cursorGlow =
-    document.getElementById("cursorGlow");
+const cursorGrid = document.getElementById("cursorGrid");
+const cursorGlow = document.getElementById("cursorGlow");
+const finePointerWallpaper =
+    window.matchMedia("(hover:hover) and (pointer:fine)").matches;
 
 let targetMouseX = window.innerWidth / 2;
 let targetMouseY = window.innerHeight / 2;
-
 let currentMouseX = targetMouseX;
 let currentMouseY = targetMouseY;
-
 let targetGridX = 0;
 let targetGridY = 0;
-
 let currentGridX = 0;
 let currentGridY = 0;
 
-let lastMouseMove = 0;
+function animateCursorWallpaper(){
+    currentMouseX += (targetMouseX - currentMouseX) * 0.08;
+    currentMouseY += (targetMouseY - currentMouseY) * 0.08;
+    currentGridX += (targetGridX - currentGridX) * 0.045;
+    currentGridY += (targetGridY - currentGridY) * 0.045;
 
-window.addEventListener(
-    "mousemove",
-    function(event){
+    if(cursorGrid){
+        cursorGrid.style.transform =
+            "translate3d(" + currentGridX + "px," +
+            currentGridY + "px,0)";
+    }
 
+    if(cursorGlow){
+        cursorGlow.style.transform =
+            "translate3d(" + currentMouseX + "px," +
+            currentMouseY + "px,0) translate3d(-50%,-50%,0)";
+    }
+
+    requestAnimationFrame(animateCursorWallpaper);
+}
+
+if(finePointerWallpaper){
+    window.addEventListener("mousemove", function(event){
         targetMouseX = event.clientX;
         targetMouseY = event.clientY;
 
-        const x =
-            (event.clientX / window.innerWidth) - 0.5;
+        const x = (event.clientX / window.innerWidth) - 0.5;
+        const y = (event.clientY / window.innerHeight) - 0.5;
 
-        const y =
-            (event.clientY / window.innerHeight) - 0.5;
-
-        /*
-         * Smooth fluid parallax movement:
-         * the ambient light gently follows the cursor
-         */
         targetGridX = x * -45;
         targetGridY = y * -30;
+    }, {passive:true});
 
-        lastMouseMove = performance.now();
-
-    },
-    { passive:true }
-);
-
-
-function animateCursorWallpaper(){
-
-    currentMouseX +=
-        (targetMouseX - currentMouseX) * 0.08;
-
-    currentMouseY +=
-        (targetMouseY - currentMouseY) * 0.08;
-
-    currentGridX +=
-        (targetGridX - currentGridX) * 0.045;
-
-    currentGridY +=
-        (targetGridY - currentGridY) * 0.045;
-
-
-    if(cursorGrid){
-
-        cursorGrid.style.transform =
-            "translate3d(" +
-            currentGridX +
-            "px," +
-            currentGridY +
-            "px,0)";
-
-    }
-
-
-    if(cursorGlow){
-
-        cursorGlow.style.transform =
-            "translate3d(" +
-            currentMouseX +
-            "px," +
-            currentMouseY +
-            "px,0) " +
-            "translate3d(-50%,-50%,0)";
-
-    }
-
-
-    requestAnimationFrame(
-        animateCursorWallpaper
-    );
-
+    animateCursorWallpaper();
 }
-
-animateCursorWallpaper();
 
 
 /* =========================================================
@@ -4069,113 +4017,77 @@ setTimeout(function(){
 /* =========================================================
    PREMIUM CURSOR AURA + LIVE PARTICLE TRAIL
 ========================================================= */
-
 (function(){
-
     const aura = document.getElementById("cursor-aura");
-    const dot = document.getElementById("cursor-dot");
-
-    if(!aura || !dot) return;
+    if(!aura) return;
 
     const finePointer =
         window.matchMedia("(hover:hover) and (pointer:fine)").matches;
-
     if(!finePointer) return;
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let auraX = mouseX;
     let auraY = mouseY;
-    let dotX = mouseX;
-    let dotY = mouseY;
     let visible = false;
     let lastSpark = 0;
 
     document.addEventListener("mousemove", function(e){
-
         mouseX = e.clientX;
         mouseY = e.clientY;
 
         if(!visible){
             visible = true;
-            aura.style.opacity = ".95";
-            dot.style.opacity = "1";
+            aura.style.opacity = ".62";
         }
 
-        /* Small theme-matching sparks */
         const now = performance.now();
-
-        if(now - lastSpark > 34){
-
+        if(now - lastSpark > 55){
             const spark = document.createElement("span");
             spark.className = "cursor-spark";
-
-            const spreadX = (Math.random() - .5) * 20;
-            const spreadY = (Math.random() - .5) * 20;
-
+            const spreadX = (Math.random() - .5) * 16;
+            const spreadY = (Math.random() - .5) * 16;
             spark.style.left = (mouseX + spreadX) + "px";
             spark.style.top = (mouseY + spreadY) + "px";
 
-            const size = 2 + Math.random() * 5;
+            const size = 2 + Math.random() * 3;
             spark.style.width = size + "px";
             spark.style.height = size + "px";
 
-            /* Purple / blue / pink shades that match the portfolio */
             const shades = [
-                "rgba(168,85,247,.9)",
-                "rgba(56,189,248,.9)",
-                "rgba(236,72,153,.9)"
+                "rgba(168,85,247,.62)",
+                "rgba(56,189,248,.62)",
+                "rgba(236,72,153,.62)"
             ];
-
             spark.style.background =
                 shades[Math.floor(Math.random() * shades.length)];
-
             spark.style.boxShadow =
-                "0 0 12px " +
-                spark.style.background;
+                "0 0 8px " + spark.style.background;
 
             document.body.appendChild(spark);
-
-            setTimeout(function(){
-                spark.remove();
-            }, 720);
-
+            setTimeout(function(){ spark.remove(); }, 600);
             lastSpark = now;
         }
-    });
+    }, {passive:true});
 
     document.addEventListener("mouseleave", function(){
         visible = false;
         aura.style.opacity = "0";
-        dot.style.opacity = "0";
     });
 
     document.addEventListener("mouseenter", function(){
         visible = true;
-        aura.style.opacity = ".95";
-        dot.style.opacity = "1";
+        aura.style.opacity = ".62";
     });
 
     function animateCursor(){
-
-        /* Smooth magnetic movement */
-        auraX += (mouseX - auraX) * .075;
-        auraY += (mouseY - auraY) * .075;
-
-        dotX += (mouseX - dotX) * .35;
-        dotY += (mouseY - dotY) * .35;
-
+        auraX += (mouseX - auraX) * .085;
+        auraY += (mouseY - auraY) * .085;
         aura.style.left = auraX + "px";
         aura.style.top = auraY + "px";
-
-        dot.style.left = dotX + "px";
-        dot.style.top = dotY + "px";
-
         requestAnimationFrame(animateCursor);
     }
-
     animateCursor();
-
 })();
 
 </script>
