@@ -1046,6 +1046,43 @@ section{
     font-size:13px;
 }
 
+.certificate-actions{
+    margin-top:28px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.certificate-actions .btn{
+    min-width:190px;
+}
+
+@media(max-width:650px){
+
+    .certificate-actions{
+        width:100%;
+    }
+
+    .certificate-actions .btn{
+        width:100%;
+        min-width:0;
+        box-sizing:border-box;
+    }
+
+    .certificate-meta{
+        gap:8px;
+    }
+
+    .certificate-meta span{
+        width:100%;
+        box-sizing:border-box;
+        text-align:center;
+        line-height:1.4;
+    }
+}
+
 .contact-grid{
     display:grid;
 
@@ -3161,7 +3198,7 @@ p, span, a, li, button, input, textarea {
             <div style="margin-top:28px;">
 
                 <a
-                    href="./Certificate_Nishant_Dharav.pdf"
+                    href="Certificate_Nishant_Dharav.pdf"
                     target="_blank"
                     class="btn btn-primary"
                 >
@@ -3210,7 +3247,56 @@ p, span, a, li, button, input, textarea {
             <div style="margin-top:28px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
 
                 <a
-                    href="./Simplilearn Certificate.pdf"
+                    href="Simplilearn_Certificate.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    📜 View Certificate
+                </a>
+</div>
+
+        </div>
+
+
+
+        <!-- ARTIFICIAL INTELLIGENCE CERTIFICATE -->
+
+        <div class="certificate glass reveal ai-certificate" style="margin-top:30px;">
+
+            <div class="certificate-badge">
+                AI
+            </div>
+
+            <h3>
+                Introduction to Artificial Intelligence
+            </h3>
+
+            <p>
+                Certification in Introduction to Artificial Intelligence,
+                demonstrating learning and understanding of Artificial Intelligence concepts.
+            </p>
+
+            <div class="certificate-meta">
+
+                <span>
+                    🤖 Artificial Intelligence
+                </span>
+
+                <span>
+                    📅 25 September 2026
+                </span>
+
+                <span>
+                    🔢 Certificate Code: 10786719
+                </span>
+
+            </div>
+
+            <div class="certificate-actions">
+
+                <a
+                    href="AI_Introduction_Certificate.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary"
@@ -3218,18 +3304,9 @@ p, span, a, li, button, input, textarea {
                     📜 View Certificate
                 </a>
 
-                <a
-                    href="./Simplilearn Certificate.pdf"
-                    download
-                    class="btn btn-secondary"
-                >
-                    ⬇️ Download
-                </a>
-
             </div>
 
         </div>
-
 
     </div>
 
